@@ -17,5 +17,53 @@ public class University{
     public List<Teacher> getTeachers() {return teachers;}
     public List<Student> getStudents() {return students;}
     public List<UniClass> getClasses() {return classes;}
+
+    public UniClass getClassByIndex(int i) {
+        if(i < 0 || i >= classes.size()) return null;
+        return classes.get(i);
+    }
+
+    public Student findStudentById(String id) {
+        for (Student s : students) {
+            if (s.getId().equalsIgnoreCase(id)) {
+                return s;
+            }
+        }
+        return null;
+    }
+
+    public Teacher findTeacherByName(String teacherName) {
+        for (Teacher t : teachers) {
+            if (t.getName().equalsIgnoreCase(teacherName)) {
+                return t;
+            }
+        }
+        return null;
+    }
+
+    public List<UniClass> findClassesByStudentId(String id) {
+        List<UniClass> result = new ArrayList<>();
+        for (UniClass c : classes) {
+            for (Student s : c.getStudents()) {
+                if (s.getId().equalsIgnoreCase(id)) {
+                    result.add(c);
+                    break;
+                }
+            }
+        }
+        return result;
+    }
+
+    public void addStudent(Student student) {
+        students.add(student);
+    }
+
+    public void addClass(UniClass newClass) {
+        classes.add(newClass);
+    }
+
+    public void addTeachere(Teacher teacher) {
+        teachers.add(teacher);
+    }
     
 }

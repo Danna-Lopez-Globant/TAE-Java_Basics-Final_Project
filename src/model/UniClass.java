@@ -29,5 +29,11 @@ public class UniClass {
     public void setTeacher(Teacher teacher) {this.teacher = teacher;}
 
     public List<Student> getStudents() {return students;}
+
+    public void addStudent(Student student) {
+        if(student != null && !students.contains(student)){
+            students.add(student);
+        }
+    }
     
 }
