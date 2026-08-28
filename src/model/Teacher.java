@@ -4,8 +4,8 @@ public abstract class Teacher {
     private static int count = 0;
 
     private final int id;
-    private String name;
-    private double baseSalary;
+    protected String name;
+    protected double baseSalary;
 
     public Teacher(String name, double baseSalary){
         this.name = name;
@@ -32,7 +32,7 @@ public abstract class Teacher {
     @Override
     public String toString() {
         return "Id: " + id + "\nname: " + name + "\ntype: " + getType() + "\nbase salary: " 
-        + baseSalary + "\ncalculated salary: " + calculateSalary();
+        + baseSalary + "\ncalculated salary: " + calculateSalary() + "\n";
     }
     
 }

@@ -30,8 +30,10 @@ public class Controller {
                 case "6": 
                     running = false;
                     view.displayMessage("Goodbye!");
+                    break;
                 default:
                     view.displayError("Invalid option, try again.");
+                    break;
             }
         }
     }
@@ -56,7 +58,7 @@ public class Controller {
         view.displayClassDetails(c);
     }
 
-    private void createStudent() {
+    private void createClass() {
         if (university.getTeachers().isEmpty()) {
             view.displayError("No teachers available. Cannot create a class.");
             return;
@@ -90,7 +92,7 @@ public class Controller {
         view.displayMessage("Class '" + name + "' created successfully.");
     }
 
-    private void createClass() {
+    private void createStudent() {
         List<UniClass> classes = university.getClasses();
         view.displayClasses(classes);
         if (classes.isEmpty()) {

@@ -62,7 +62,7 @@ public class University{
         classes.add(newClass);
     }
 
-    public void addTeachere(Teacher teacher) {
+    public void addTeacher(Teacher teacher) {
         teachers.add(teacher);
     }
     

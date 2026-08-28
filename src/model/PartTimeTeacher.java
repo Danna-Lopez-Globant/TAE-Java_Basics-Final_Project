@@ -10,7 +10,7 @@ public class PartTimeTeacher extends Teacher {
 
     @Override
     public double calculateSalary(){
-        return 0;
+        return (baseSalary * hoursPerWeek);
     }
 
     @Override

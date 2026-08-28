@@ -10,7 +10,7 @@ public class FullTimeTeacher extends Teacher {
 
     @Override
     public double calculateSalary(){
-        return 0;
+        return (baseSalary * 1.10 * yearsExperience);
     }
 
     @Override
