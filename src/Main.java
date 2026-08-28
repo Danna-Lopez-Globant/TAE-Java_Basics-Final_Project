@@ -44,18 +44,26 @@ public class Main {
         university.addStudent(s6);
 
         UniClass c1 = new UniClass("Data Structures", "A-101", t1);
-        c1.addStudent(s1); c1.addStudent(s2); c1.addStudent(s3);
+        c1.addStudent(s1); 
+        c1.addStudent(s2); 
+        c1.addStudent(s3);
 
         UniClass c2 = new UniClass("Databases", "B-202", t2);
-        c2.addStudent(s2); c2.addStudent(s4);
+        c2.addStudent(s2); 
+        c2.addStudent(s4);
 
         UniClass c3 = new UniClass("Web Development", "C-303", t3);
-        c3.addStudent(s3); c3.addStudent(s5); c3.addStudent(s6);
+        c3.addStudent(s3); 
+        c3.addStudent(s5); 
+        c3.addStudent(s6);
 
         UniClass c4 = new UniClass("Software Engineering", "D-404", t4);
-        c4.addStudent(s1); c4.addStudent(s6);
+        c4.addStudent(s1); 
+        c4.addStudent(s6);
 
-        university.addClass(c1); university.addClass(c2);
-        university.addClass(c3); university.addClass(c4);
+        university.addClass(c1); 
+        university.addClass(c2);
+        university.addClass(c3); 
+        university.addClass(c4);
     }
 }

@@ -40,7 +40,7 @@ public class UiView {
         }else{
             System.out.println("----- Classes List -----");
             for (int i = 0; i < classes.size(); i++){
-                System.out.println((i+1) + ". " + classes.get(i));
+                System.out.println((i+1) + ". " + classes.get(i).getName());
             }
         }
     }
@@ -49,12 +49,14 @@ public class UiView {
         System.out.println("=========================================");
         System.out.println("Class     : " + c.getName());
         System.out.println("Classroom : " + c.getClassroom());
-        System.out.println("Teacher   : " + (c.getTeacher() != null ? c.getTeacher() : "No teacher assigned"));
+        System.out.println("Teacher   : " + (c.getTeacher() != null ? c.getTeacher() + " - " + c.getTeacher() : "No teacher assigned"));
         System.out.println("Students  (" + c.getStudents().size() + "):");
         if (c.getStudents().isEmpty()) {
             System.out.println("   No students enrolled yet.");
         } else {
-            for (Student s : c.getStudents()) System.out.println("   - " + s);
+            for (int i = 0; i < c.getStudents().size(); i++){
+                System.out.println("   - " + c.getStudents().get(i).getName() + " with id "  + c.getStudents().get(i).getId());
+            }
         }
         System.out.println("=========================================");
     }
@@ -96,8 +98,15 @@ public class UiView {
     }
 
     public String promptString(String message) {
-        System.out.println(message);
-        return scanner.nextLine().trim();
+        String value;
+        do {
+            System.out.println(message);
+            value = scanner.nextLine().trim();
+            if (value.isEmpty()) {
+                System.out.println("This field cannot be empty, try again");
+            }
+        } while (value.isEmpty());
+        return value;
     }
 
 }
