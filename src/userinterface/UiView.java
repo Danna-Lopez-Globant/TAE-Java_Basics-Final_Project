@@ -26,46 +26,78 @@ public class UiView {
     }
 
     public void displayTeachers(List<Teacher> teachers){
-
+        if (teachers.isEmpty()) {
+            System.out.println("No teachers registered yet.");
+        }else{
+            System.out.println("----- Teachers List (" + teachers.size() + " total) -----");
+            for (Teacher t : teachers) System.out.println(t);
+        }
     }
 
+    public void displayClasses(List<UniClass> classes) {
+        if (classes.isEmpty()) {
+            System.out.println("No classes registered yet.");
+        }else{
+            System.out.println("----- Classes List -----");
+            for (int i = 0; i < classes.size(); i++){
+                System.out.println((i+1) + ". " + classes.get(i));
+            }
+        }
+    }
+
+    public void displayClassDetails(UniClass c) {
+        System.out.println("=========================================");
+        System.out.println("Class     : " + c.getName());
+        System.out.println("Classroom : " + c.getClassroom());
+        System.out.println("Teacher   : " + (c.getTeacher() != null ? c.getTeacher() : "No teacher assigned"));
+        System.out.println("Students  (" + c.getStudents().size() + "):");
+        if (c.getStudents().isEmpty()) {
+            System.out.println("   No students enrolled yet.");
+        } else {
+            for (Student s : c.getStudents()) System.out.println("   - " + s);
+        }
+        System.out.println("=========================================");
+    }
+
+    public void displayStudentClasses(Student s, List<UniClass> sClasses) {
+        if (sClasses.isEmpty()) {
+            System.out.println(s.getName() + " is not enrolled in any class.");
+            return;
+        }
+        System.out.println("Classes for " + s.getName() + " (ID: " + s.getId() + "):");
+        for (UniClass c : sClasses) {
+            System.out.println("   - " + c.getName() + " (Classroom: " + c.getClassroom() + ")");
+        }
+    }
+
+    public void displayMessage(String message) {
+        System.out.println(message);
+    }
+
+    public void displayError(String message) {
+        System.out.println("ERROR: " + message);
+    }
+
+    //Input methods
     public String readOption() {
         System.out.println("Select an option: ");
         return scanner.nextLine().trim();
     }
 
-    public void displayMessage(String string) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'displayMessage'");
+    public int promptInt(String message) {
+        while (true) {
+            System.out.print(message);
+            try {
+                return Integer.parseInt(scanner.nextLine().trim());
+            } catch (NumberFormatException e) {
+                System.out.println("Please enter a valid number.");
+            }
+        }
     }
 
-    public void displayError(String string) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'displayError'");
+    public String promptString(String message) {
+        System.out.println(message);
+        return scanner.nextLine().trim();
     }
 
-    public void displayClassDetails(UniClass c) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'displayClassDetails'");
-    }
-
-    public int promptInt(String string) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'promptInt'");
-    }
-
-    public void displayClasses(List<UniClass> classes) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'displayClasses'");
-    }
-
-    public String promptString(String string) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'promptString'");
-    }
-
-    public void displayStudentClasses(Student s, List<UniClass> sClasses) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'displayStudentClasses'");
-    }
 }
